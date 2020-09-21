@@ -20,7 +20,6 @@
             "securityRules":[
                {
                   "properties":{
-                     "description":"denySandboxTraffic",
                      "protocol":"*",
                      "destinationPortRange":"*",
                      "destinationAddressPrefix":"*",
@@ -34,7 +33,6 @@
                },
                {
                   "properties":{
-                     "description":"client_can_ping_server",
                      "protocol":"ICMP",
                      "sourcePortRange":"*",
                      "access":"Allow",
@@ -52,7 +50,7 @@
                         }
                      ]
                   },
-                  "name":"all_apps_to_sidecar"
+                  "name":"client_can_ping_server"
                }
             ]
          },
