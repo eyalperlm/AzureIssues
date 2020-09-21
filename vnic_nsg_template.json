@@ -34,8 +34,8 @@
                },
                {
                   "properties":{
-                     "description":"client_can_access_server",
-                     "protocol":"Tcp",
+                     "description":"client_can_ping_server",
+                     "protocol":"ICMP",
                      "sourcePortRange":"*",
                      "access":"Allow",
                      "direction":"Inbound",
