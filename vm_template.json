@@ -92,25 +92,6 @@
             "autoUpgradeMinorVersion":true,
             "typeHandlerVersion":"2.0",
             "protectedSettings":{
-               "commandToExecute":"wget https://google.com",
-               "fileUris":[]
-            }
-         },
-         "type":"Microsoft.Compute/virtualMachines/extensions",
-         "dependsOn":[
-            "[resourceId('Microsoft.Compute/virtualMachines/','server')]"
-         ],
-         "location":"[resourceGroup().location]",
-         "name":"server/CustomScriptForLinux",
-         "apiVersion":"2017-12-01"
-      },
-      {
-         "properties":{
-            "publisher":"Microsoft.Azure.Extensions",
-            "type":"CustomScript",
-            "autoUpgradeMinorVersion":true,
-            "typeHandlerVersion":"2.0",
-            "protectedSettings":{
                "commandToExecute":"while true; do ping -c1 server.azure.ticket.com && break; done",
                "fileUris":[]
             }
