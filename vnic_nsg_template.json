@@ -52,12 +52,12 @@
                      "destinationPortRange":"*",
                      "destinationApplicationSecurityGroups":[
                         {
-                           "id":"[resourceId(Microsoft.Network/applicationSecurityGroups/','server_asg')]"
+                           "id":"[resourceId('Microsoft.Network/applicationSecurityGroups/','server_asg')]"
                         }
                      ],
                      "sourceApplicationSecurityGroups":[
                         {
-                           "id":"[resourceId(Microsoft.Network/applicationSecurityGroups/','client_asg')]"
+                           "id":"[resourceId('Microsoft.Network/applicationSecurityGroups/','client_asg')]"
                         }
                      ]
                   },
@@ -182,28 +182,6 @@
          "location":"[resourceGroup().location]",
          "name":"server_nic",
          "apiVersion":"2017-10-01"
-      },
-      {
-         "name":"FlowLog",
-         "type":"Microsoft.Network/networkWatchers/flowLogs",
-         "location":"westeurope",
-         "apiVersion":"2019-09-01",
-         "properties":{
-            "targetResourceId":"/subscriptions/24aae708-4612-497c-a91e-7ec5c657f9db/resourceGroups/vpf2ujkoym13z2/providers/Microsoft.Network/networkSecurityGroups/colonySidecar_security_group",
-            "storageId":"/subscriptions/24aae708-4612-497c-a91e-7ec5c657f9db/resourceGroups/colony-zjvmogqwzwvk9593/providers/Microsoft.Storage/storageAccounts/colonyzjvmogqwzwvk9593",
-            "enabled":true,
-            "flowAnalyticsConfiguration":{
-               
-            },
-            "retentionPolicy":{
-               "days":1,
-               "enabled":true
-            },
-            "format":{
-               "type":"JSON",
-               "version":1
-            }
-         }
       }
    ],
    "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json"
