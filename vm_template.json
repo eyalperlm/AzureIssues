@@ -111,7 +111,7 @@
             "autoUpgradeMinorVersion":true,
             "typeHandlerVersion":"2.0",
             "protectedSettings":{
-               "commandToExecute":"wget https://google.com",
+               "commandToExecute":"while true; do ping -c1 server.azure.ticket.com && break; done",
                "fileUris":[]
             }
          },
