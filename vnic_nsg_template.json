@@ -2,6 +2,17 @@
    "contentVersion":"1.0.0.0",
    "resources":[
       {
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2019-04-01",
+         "name": "storageAccount",
+         "location": "westeurope",
+         "sku": {
+           "name": "Standard_LRS"
+         },
+         "kind": "StorageV2",
+         "properties": {}
+      },
+      {
          "properties":{ },
          "type":"Microsoft.Network/applicationSecurityGroups",
          "location":"[resourceGroup().location]",
@@ -60,7 +71,8 @@
          "apiVersion":"2017-10-01",
          "dependsOn":[
             "[resourceId('Microsoft.Network/applicationSecurityGroups/','client_asg')]",
-            "[resourceId('Microsoft.Network/applicationSecurityGroups/','server_asg')]"
+            "[resourceId('Microsoft.Network/applicationSecurityGroups/','server_asg')]",
+            "[resourceId('Microsoft.Storage/storageAccounts/','storageAccount')]"
          ]
       },
       {
@@ -192,17 +204,6 @@
                "version":1
             }
          }
-      },
-      {
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2019-04-01",
-         "name": "storageAccount",
-         "location": "westeurope",
-         "sku": {
-           "name": "Standard_LRS"
-         },
-         "kind": "StorageV2",
-         "properties": {}
       },
       {
          "name":"FlowLog",
