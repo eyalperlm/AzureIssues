@@ -1,0 +1,30 @@
+{
+   "contentVersion":"1.0.0.0",
+   "resources":[
+      {
+         "properties":{
+            
+         },
+         "type":"Microsoft.Network/privateDnsZones",
+         "location":"global",
+         "name":"azure.ticket.com",
+         "apiVersion":"2018-09-01"
+      },
+      {
+         "properties":{
+            "registrationEnabled":false,
+            "virtualNetwork":{
+               "id":"[resourceId('Microsoft.Network/virtualNetworks/','vnet')]"
+            }
+         },
+         "type":"Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+         "location":"global",
+         "dependsOn":[
+            "[resourceId('Microsoft.Network/privateDnsZones/','azure.ticket.com')]"
+         ],
+         "name":"azure.ticket.com/vnet-link",
+         "apiVersion":"2018-09-01"
+      }
+   ],
+   "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json"
+}

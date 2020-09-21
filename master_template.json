@@ -1,0 +1,79 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
+            "name": "vnet_template",
+            "dependsOn": [],
+            "properties": {
+                "templateLink": {
+                    "uri": "",
+                    "contentVersion": "1.0.0.0"
+                },
+                "mode": "Incremental"
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
+            "name": "dns_template",
+            "dependsOn": [
+                "vnet_template"
+            ],
+            "properties": {
+                "templateLink": {
+                    "uri": "",
+                    "contentVersion": "1.0.0.0"
+                },
+                "mode": "Incremental"
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
+            "name": "vnic_nsg_template",
+            "dependsOn": [
+                "dns_template"
+            ],
+            "properties": {
+                "templateLink": {
+                    "uri": "",
+                    "contentVersion": "1.0.0.0"
+                },
+                "mode": "Incremental"
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
+            "name": "vm_template",
+            "dependsOn": [
+                "vnic_nsg_template"
+            ],
+            "properties": {
+                "templateLink": {
+                    "uri": "",
+                    "contentVersion": "1.0.0.0"
+                },
+                "mode": "Incremental"
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
+            "name": "ag_template",
+            "dependsOn": [
+                "vnic_nsg_template"
+            ],
+            "properties": {
+                "templateLink": {
+                    "uri": "",
+                    "contentVersion": "1.0.0.0"
+                },
+                "mode": "Incremental"
+            }
+        }
+    ]
+}
