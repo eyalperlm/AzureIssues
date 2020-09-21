@@ -9,7 +9,7 @@
             "dependsOn": [],
             "properties": {
                 "templateLink": {
-                    "uri": "",
+                    "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/vnet_template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "mode": "Incremental"
@@ -24,7 +24,7 @@
             ],
             "properties": {
                 "templateLink": {
-                    "uri": "",
+                    "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/dns_template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "mode": "Incremental"
@@ -39,7 +39,7 @@
             ],
             "properties": {
                 "templateLink": {
-                    "uri": "",
+                    "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/vnic_nsg_template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "mode": "Incremental"
@@ -54,7 +54,7 @@
             ],
             "properties": {
                 "templateLink": {
-                    "uri": "",
+                    "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/vm_template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "mode": "Incremental"
@@ -69,7 +69,7 @@
             ],
             "properties": {
                 "templateLink": {
-                    "uri": "",
+                    "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/ag_template.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "mode": "Incremental"
