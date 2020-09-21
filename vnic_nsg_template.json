@@ -204,30 +204,6 @@
                "version":1
             }
          }
-      },
-      {
-         "name":"FlowLog",
-         "type":"Microsoft.Network/networkWatchers/flowLogs",
-         "location":"westeurope",
-         "apiVersion":"2019-09-01",
-         "dependsOn":[
-            "[resourceId('Microsoft.Storage/storageAccounts/','storageAccount')]",
-            "[resourceId('Microsoft.Network/networkSecurityGroups/','server_security_group')]"
-         ],
-         "properties":{
-            "targetResourceId":"[resourceId('Microsoft.Network/networkSecurityGroups/','server_security_group')]",
-            "storageId":"[resourceId('Microsoft.Storage/storageAccounts', 'storageAccount')]",
-            "enabled":true,
-            "flowAnalyticsConfiguration":{ },
-            "retentionPolicy":{
-               "days":1,
-               "enabled":true
-            },
-            "format":{
-               "type":"JSON",
-               "version":1
-            }
-         }
       }
    ],
    "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json"
