@@ -39,7 +39,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-02-01",
-            "name": "vnic_nsg_template"
+            "name": "vnic_nsg_template",
             "dependsOn": [
                 "dns_template"
             ],
