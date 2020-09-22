@@ -92,7 +92,7 @@
             "autoUpgradeMinorVersion":true,
             "typeHandlerVersion":"2.0",
             "protectedSettings":{
-               "commandToExecute":"while true; do ping -c1 server.azure.ticket.com && break; done",
+               "commandToExecute":"while true; do sleep 5; wget server.azure.ticket.com:2999 && break; done",
                "fileUris":[]
             }
          },
@@ -102,6 +102,25 @@
          ],
          "location":"[resourceGroup().location]",
          "name":"client/CustomScriptForLinux",
+         "apiVersion":"2017-12-01"
+      },
+      {
+         "properties":{
+            "publisher":"Microsoft.Azure.Extensions",
+            "type":"CustomScript",
+            "autoUpgradeMinorVersion":true,
+            "typeHandlerVersion":"2.0",
+            "protectedSettings":{
+               "commandToExecute":"echo -e 'HTTP/1.1 200 OK\n\n It works!!!!' | nc -l 2999",
+               "fileUris":[]
+            }
+         },
+         "type":"Microsoft.Compute/virtualMachines/extensions",
+         "dependsOn":[
+            "[resourceId('Microsoft.Compute/virtualMachines/','server')]"
+         ],
+         "location":"[resourceGroup().location]",
+         "name":"server/CustomScriptForLinux",
          "apiVersion":"2017-12-01"
       },
       {
