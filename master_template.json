@@ -1,6 +1,12 @@
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
+    "parameters":{
+        "storageAccountName":{
+            "type": "string",
+            "defaultValue": "[concat('storage', uniqueString(resourceGroup().id))]"
+        }
+    },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
@@ -42,7 +48,12 @@
                     "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/vnic_nsg_template.json",
                     "contentVersion": "1.0.0.0"
                 },
-                "mode": "Incremental"
+                "mode": "Incremental",
+                "parameters": {
+                    "storageAccountName":{
+                        "value": "[parameters('storageAccountName')]"
+                    }
+                }
             }
         },
         {
@@ -61,10 +72,10 @@
                 "mode": "Incremental",
                 "parameters": {
                     "networkSecurityGroupId": {
-                        "value": "[resourceId('Microsoft.Network/networkSecurityGroups/','server_security_group')]"
+                        "value": "[resourceId('Microsoft.Network/networkSecurityGroups/', 'server_security_group')]"
                     },
                     "storageAccountId": {
-                        "value": "[resourceId('Microsoft.Storage/storageAccounts/','storageAccount')]"
+                        "value": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
                     }
                 }
             }
