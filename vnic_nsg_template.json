@@ -77,7 +77,7 @@
          "dependsOn":[
             "[resourceId('Microsoft.Network/applicationSecurityGroups/','client_asg')]",
             "[resourceId('Microsoft.Network/applicationSecurityGroups/','server_asg')]",
-            "[resourceId('Microsoft.Storage/storageAccounts/','storageAccount')]"
+            "[resourceId('Microsoft.Storage/storageAccounts/',parameters('storageAccountName'))]"
          ]
       },
       {
