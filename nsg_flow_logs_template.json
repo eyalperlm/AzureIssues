@@ -11,7 +11,7 @@
     },
     "resources": [
        {
-         "name":"NetworkWatcher_westeurope/FlowLogOfAzureNsgTicket",
+         "name":"[concat('NetworkWatcher_westeurope/FlowLogOfAzureNsgTicket', uniqueString(resourceGroup().id))]",
          "type":"Microsoft.Network/networkWatchers/flowLogs",
          "location":"westeurope",
          "apiVersion":"2019-09-01",
