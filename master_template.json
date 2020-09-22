@@ -48,6 +48,30 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-02-01",
+            "name": "nsg_flow_logs_template",
+            "resourceGroup": "NetworkWatcherRG",
+            "dependsOn": [
+                "vnic_nsg_template"
+            ],
+            "properties": {
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/nsg_flow_logs_template.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "networkSecurityGroupId": {
+                        "value": "[resourceId('Microsoft.Network/networkSecurityGroups/','server_security_group')]"
+                    },
+                    "storageAccountId": {
+                        "value": "[resourceId('Microsoft.Storage/storageAccounts/','storageAccount')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
             "name": "vm_template",
             "dependsOn": [
                 "vnic_nsg_template"
