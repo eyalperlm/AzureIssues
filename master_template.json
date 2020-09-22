@@ -2,9 +2,9 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters":{
-        "storageAccountName":{
+        "storageAccountId":{
             "type": "string",
-            "defaultValue": "[concat('storage', uniqueString(resourceGroup().id))]"
+            "defaultValue": "/subscriptions/24aae708-4612-497c-a91e-7ec5c657f9db/resourceGroups/colony-zjvmogqwzwvk9593/providers/Microsoft.Storage/storageAccounts/colonyzjvmogqwzwvk9593"
         }
     },
     "resources": [
@@ -48,12 +48,7 @@
                     "uri": "https://raw.githubusercontent.com/eyalperlm/AzureIssues/master/vnic_nsg_template.json",
                     "contentVersion": "1.0.0.0"
                 },
-                "mode": "Incremental",
-                "parameters": {
-                    "storageAccountName":{
-                        "value": "[parameters('storageAccountName')]"
-                    }
-                }
+                "mode": "Incremental"
             }
         },
         {
@@ -75,7 +70,7 @@
                         "value": "[resourceId('Microsoft.Network/networkSecurityGroups/', 'server_security_group')]"
                     },
                     "storageAccountId": {
-                        "value": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+                        "value": "[parameters('storageAccountId')]"
                     }
                 }
             }
